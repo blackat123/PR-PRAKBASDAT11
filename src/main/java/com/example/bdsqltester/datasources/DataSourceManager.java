@@ -19,7 +19,7 @@ public class DataSourceManager {
 
     private static HikariDataSource createDataSource(String username, String password) {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://localhost:5433/proyekBD");
+        config.setJdbcUrl("jdbc:postgresql://localhost:5432/LatihanBD");
         config.setUsername(username);
         config.setPassword(password);
         config.addDataSourceProperty("cachePrepStmts", "true");

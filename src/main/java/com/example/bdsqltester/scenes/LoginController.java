@@ -65,8 +65,14 @@ public class LoginController {
 
     @FXML
     void initialize() {
-        selectRole.getItems().addAll("User");
-        selectRole.setValue("User");
+        selectRole.getItems().addAll("User", "Admin Cabang", "Admin Pusat");
+        if (selectRole.getItems().contains("User")) {
+            selectRole.setValue("User");
+        } else if (selectRole.getItems().contains("Admin Cabang")) {
+            selectRole.setValue("Admin Cabang");
+        } else if (selectRole.getItems().contains("Admin Pusat")) {
+            selectRole.setValue("Admin Pusat");
+        }
     }
 
     @FXML
@@ -92,7 +98,7 @@ public class LoginController {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login Failed");
                 alert.setHeaderText("Invalid Credentials");
-                alert.setContentText("Please check your username and password.");
+                alert.setContentText("Please check your username, password, and role.");
                 alert.showAndWait();
             }
         } catch (SQLException e) {

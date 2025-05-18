@@ -1,11 +1,17 @@
 package com.example.bdsqltester.scenes.user;
+import com.example.bdsqltester.HelloApplication;
 import com.example.bdsqltester.datasources.DataSourceManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import com.example.bdsqltester.dtos.Menu;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -76,6 +82,13 @@ public class UserController {
         }
     }
 
-
+    @FXML
+    private void makeOrder(ActionEvent event) throws IOException {
+        HelloApplication app = HelloApplication.getApplicationInstance();
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("make-order.fxml"));
+        Scene scene = new Scene(loader.load());
+        app.getPrimaryStage().setScene(scene);
+        app.getPrimaryStage().sizeToScene();
+    }
 
 }
